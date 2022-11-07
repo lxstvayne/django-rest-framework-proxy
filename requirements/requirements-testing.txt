@@ -1,4 +1,4 @@
-coverage>4
-coveralls>1
-mock>=1.0.1
-tox>=2.1.1
+coverage>4  # https://github.com/nedbat/coveragepy/
+coveralls>1  # https://github.com/z4r/python-coveralls
+mock>=1.0.1  # Mock comes with Python 3.3 https://github.com/testing-cabal/mock
+tox>=2.1.1  # https://github.com/tox-dev/tox
