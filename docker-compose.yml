@@ -1,0 +1,15 @@
+services:
+  dev:
+    container_name: drf-proxy
+    build:
+      context: .
+      target: local-testing
+    image: drf-proxy:compose-latest
+    command: python runtests.py
+    ports:
+      - "8020:8000"
+    volumes:
+      - type: bind
+        source: .
+        target: /rest_framework_proxy
+        consistency: delegated
