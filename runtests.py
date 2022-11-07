@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import sys
+from django.test.utils import get_runner
 
 try:
     from django.conf import settings
@@ -37,7 +38,6 @@ try:
     else:
         setup()
 
-    from django_nose import NoseTestSuiteRunner
 except ImportError:
     import traceback
     traceback.print_exc()
@@ -49,7 +49,8 @@ def run_tests(*test_args):
         test_args = ['tests']
 
     # Run tests
-    test_runner = NoseTestSuiteRunner(verbosity=1)
+    TestRunner = get_runner(settings)
+    test_runner = TestRunner(pattern="*_test*.py")
 
     failures = test_runner.run_tests(test_args)
 
