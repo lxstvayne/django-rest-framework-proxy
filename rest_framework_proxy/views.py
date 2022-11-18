@@ -54,7 +54,7 @@ class ProxyView(BaseProxyView):
             for param in self.proxy_settings.DISALLOWED_PARAMS:
                 if param in qp:
                     del qp[param]
-            return six.iterlists(qp)
+            return list(qp)
         return {}
 
     def get_request_data(self, request):
